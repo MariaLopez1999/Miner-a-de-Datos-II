@@ -1,0 +1,39 @@
+flowchart LR
+    subgraph SRC["Fuentes / Landing"]
+      A["CSV: customers_orgs<br/>users<br/>resources"]
+      B["CSV: support_tickets<br/>marketing_touches<br/>nps_surveys<br/>billing_monthly"]
+      C["JSONL fragmentado<br/>usage_events_stream/*"]
+    end
+
+    subgraph ING["Ingesta"]
+      BT["PySpark Batch<br/>schemas explícitos"]
+      ST["Structured Streaming<br/>schema + watermark + checkpoint"]
+    end
+
+    subgraph DL["Data Lake"]
+      L["Landing<br/>raw inmutable"]
+      BR["Bronze<br/>Parquet + ingest_ts + source_file"]
+      SI["Silver<br/>conformado + joins + calidad"]
+      GO["Gold<br/>marts de negocio"]
+    end
+
+    CA["Cassandra / AstraDB<br/>query-first serving"]
+    US["Consumo<br/>FinOps · Soporte · Producto/Usage"]
+
+    A --> L
+    B --> L
+    C --> L
+    L --> BT --> BR
+    L --> ST --> BR
+    BR --> SI --> GO --> CA --> US
+
+    X["Gobierno transversal<br/>calidad · metadatos · linaje<br/>seguridad · observabilidad · idempotencia"]
+    X -.-> L
+    X -.-> BR
+    X -.-> SI
+    X -.-> GO
+    X -.-> CA
+
+    style SRC fill:#ECEFF1,stroke:#455A64
+    style ING fill:#E3F2FD,stroke:#1976D2
+    style DL fill:#F1F8E9,stroke:#558B2F
