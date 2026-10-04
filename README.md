@@ -1,4 +1,4 @@
-[README.md](https://github.com/user-attachments/files/33030503/README.md)[Uploading README.# Cloud Provider Analytics — Primera entrega
+Cloud Provider Analytics — Primera entrega
 
 ## Alcance
 Esta carpeta contiene la **Primera Evaluación Parcial: Diseño y fundación de datos** del proyecto integrador de Minería de Datos II (ISTEA, 2C 2026).
