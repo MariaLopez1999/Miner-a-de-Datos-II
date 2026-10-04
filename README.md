@@ -3,8 +3,6 @@ Cloud Provider Analytics — Primera entrega
 ## Alcance
 Esta carpeta contiene la **Primera Evaluación Parcial: Diseño y fundación de datos** del proyecto integrador de Minería de Datos II (ISTEA, 2C 2026).
 
-No se implementa todavía el pipeline completo exigido para la segunda evaluación. El objetivo es dejar una fundación coherente para continuar hacia Landing → Bronze → Silver → Gold → Cassandra/AstraDB.
-
 ## Estructura
 - `docs/diseno_primera_entrega.md`: documento principal.
 - `docs/arquitectura_v1.mmd`: diagrama de arquitectura en Mermaid.
